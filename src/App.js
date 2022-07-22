@@ -36,6 +36,7 @@ function App() {
   const {
     control,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm({
     resolver: yupResolver(registerValidationSchema),
@@ -43,6 +44,14 @@ function App() {
   const onSubmit = (data) => {
     console.log(data);
     console.log("done");
+    reset({
+      firstName: "",
+      lastName: "",
+      userName: "",
+      email: "",
+      password: "",
+      confirmPassword: "",
+    });
   };
   return (
     <div className="App">
